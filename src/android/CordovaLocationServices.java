@@ -244,7 +244,9 @@ public class CordovaLocationServices extends CordovaPlugin implements
     }
 
     public void win(Location loc, CallbackContext callbackContext,
-                    boolean keepCallback) {
+            boolean keepCallback) {
+        if (callbackContext == null)
+            return;
         PluginResult result = new PluginResult(PluginResult.Status.OK,
                 this.returnLocationJSON(loc));
         result.setKeepCallback(keepCallback);
